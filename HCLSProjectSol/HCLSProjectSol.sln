@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCLSProject", "HCLSProject\HCLSProject.csproj", "{556475D2-A1D5-4588-95B6-7A223CBE73C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCLSProject.Tests", "HCLSProject.Tests\HCLSProject.Tests.csproj", "{288F3381-A0ED-4B0D-B348-276803EAB471}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{556475D2-A1D5-4588-95B6-7A223CBE73C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556475D2-A1D5-4588-95B6-7A223CBE73C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556475D2-A1D5-4588-95B6-7A223CBE73C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556475D2-A1D5-4588-95B6-7A223CBE73C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288F3381-A0ED-4B0D-B348-276803EAB471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288F3381-A0ED-4B0D-B348-276803EAB471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288F3381-A0ED-4B0D-B348-276803EAB471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288F3381-A0ED-4B0D-B348-276803EAB471}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {280DC8AB-FFF0-4D74-AB36-ADFF63741E9E}
+	EndGlobalSection
+EndGlobal
