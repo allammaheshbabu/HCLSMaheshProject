@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HCLSProject.Migrations
 {
     [DbContext(typeof(HCLSDBContext))]
-    [Migration("20241129172921_hclsproject")]
-    partial class hclsproject
+    [Migration("20241130052747_hclsmigtation")]
+    partial class hclsmigtation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,10 +62,15 @@ namespace HCLSProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Phone")
+                    b.Property<long>("Phone")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("adminTypesAdminTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("AdminId");
+
+                    b.HasIndex("adminTypesAdminTypeId");
 
                     b.ToTable("Admin");
                 });
@@ -85,6 +90,17 @@ namespace HCLSProject.Migrations
                     b.HasKey("AdminTypeId");
 
                     b.ToTable("AdminTypes");
+                });
+
+            modelBuilder.Entity("HCLSProject.Models.Admin", b =>
+                {
+                    b.HasOne("HCLSProject.Models.AdminTypes", "adminTypes")
+                        .WithMany()
+                        .HasForeignKey("adminTypesAdminTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("adminTypes");
                 });
 #pragma warning restore 612, 618
         }

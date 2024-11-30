@@ -5,13 +5,11 @@
 namespace HCLSProject.Migrations
 {
     /// <inheritdoc />
-    public partial class hclsproject : Migration
+    public partial class hclsmigtation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-
             migrationBuilder.CreateTable(
                 name: "AdminTypes",
                 columns: table => new
@@ -25,7 +23,6 @@ namespace HCLSProject.Migrations
                     table.PrimaryKey("PK_AdminTypes", x => x.AdminTypeId);
                 });
 
-
             migrationBuilder.CreateTable(
                 name: "Admin",
                 columns: table => new
@@ -34,31 +31,40 @@ namespace HCLSProject.Migrations
                         .Annotation("SqlServer:Identity", "101, 1"),
                     AdminName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<int>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<long>(type: "bigint", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Id_Proof = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActiveStatus = table.Column<bool>(type: "bit", nullable: false),
                     AdminTypeId = table.Column<int>(type: "int", nullable: false)
+                    
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Admin", x => x.AdminId);
+                    table.ForeignKey(
+                        name: "FK_Admin_AdminTypes_AdminTypeId",
+                        column: x => x.AdminTypeId,
+                        principalTable: "AdminTypes",
+                        principalColumn: "AdminTypeId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
-            
+            migrationBuilder.CreateIndex(
+               name: "IX_Admin_AdminTypeId",
+               table: "Admin",
+               column: "AdminTypeId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admin");
 
             migrationBuilder.DropTable(
                 name: "AdminTypes");
-
-            migrationBuilder.DropTable(
-                name: "Admin");
         }
     }
 }
