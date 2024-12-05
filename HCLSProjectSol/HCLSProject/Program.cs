@@ -1,3 +1,5 @@
+using HCLSProject.DataAccess.IRepositories;
+using HCLSProject.DataAccess.Repositories;
 using HCLSProject.DBContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HCLSDBContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("con_str")));
+builder.Services.AddSingleton<IAdminTypesRepository, AdminTypesRepository>();
+builder.Services.AddSingleton<IAdminRepository, AdminRepository>();
 
 var app = builder.Build();
 
