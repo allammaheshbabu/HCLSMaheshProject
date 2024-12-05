@@ -39,7 +39,7 @@ namespace HCLSProject.Models
         public int AdminTypeId { get; set; }
 
       
-        public  AdminTypes adminTypes { get; set; } 
+        public  AdminTypes AdminType { get; set; } 
     }
 
 }

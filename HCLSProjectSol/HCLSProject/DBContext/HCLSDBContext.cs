@@ -7,8 +7,8 @@ namespace HCLSProject.DBContext
     {
         public HCLSDBContext(DbContextOptions<HCLSDBContext> options) : base(options) { }
 
-        public DbSet<AdminTypes> admintype { get; set; }
+        public DbSet<AdminTypes> Admintypes { get; set; }
 
-        public DbSet<Admin> admin { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }
