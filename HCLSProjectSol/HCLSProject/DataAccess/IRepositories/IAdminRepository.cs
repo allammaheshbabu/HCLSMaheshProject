@@ -4,9 +4,9 @@ namespace HCLSProject.DataAccess.IRepositories
 {
     public interface IAdminRepository
     {
-        public Task<List<Admin>> GetAllAdmins(); 
+        public Task<List<Admin>> getAllAdmins(); 
         
-        public Task<Admin> GetAdminById(int AdminId);
+        public Task<Admin> getAdminById(int AdminId);
 
         public Task<int> insertAdmin(Admin admin);
 

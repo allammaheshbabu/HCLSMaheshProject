@@ -14,12 +14,12 @@ namespace HCLSProject.DataAccess.Repositories
             admincontext = _admincontext;
         }
 
-        public async Task<Admin> GetAdminById(int AdminId)
+        public async Task<Admin> getAdminById(int AdminId)
         {
              return await admincontext.Admins!.FindAsync(AdminId);
         }
 
-        public async Task<List<Admin>> GetAllAdmins()
+        public async Task<List<Admin>> getAllAdmins()
         {
           return await admincontext.Admins.ToListAsync();
         }

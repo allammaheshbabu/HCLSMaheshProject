@@ -22,13 +22,13 @@ namespace HCLSProject.DataAccess.Repositories
 
         }
 
-        public async Task<AdminTypes> GetAdminTypeById(int AdminTypeId)
+        public async Task<AdminTypes> getAdminTypeById(int AdminTypeId)
         {
            return await adminTypescontext.Admintypes.FindAsync(AdminTypeId);
            
         }
 
-        public async Task<List<AdminTypes>> GetAllAdminTypes()
+        public async Task<List<AdminTypes>> getAllAdminTypes()
         {
            return await adminTypescontext.Admintypes.ToListAsync();
         }

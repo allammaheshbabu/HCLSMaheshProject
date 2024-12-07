@@ -12,8 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HCLSDBContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("con_str")));
-builder.Services.AddSingleton<IAdminTypesRepository, AdminTypesRepository>();
-builder.Services.AddSingleton<IAdminRepository, AdminRepository>();
+builder.Services.AddTransient<IAdminTypesRepository, AdminTypesRepository>();
+builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 
 var app = builder.Build();
 
