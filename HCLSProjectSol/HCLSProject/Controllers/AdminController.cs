@@ -11,7 +11,7 @@ namespace HCLSProject.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        public  IAdminRepository AdminRepo { get; set; }
+        public IAdminRepository AdminRepo;
 
         public AdminController(IAdminRepository AdminRepo) 
         {
