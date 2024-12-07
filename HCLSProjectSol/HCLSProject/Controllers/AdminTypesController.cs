@@ -84,7 +84,7 @@ namespace HCLSProject.Controllers
                 return BadRequest("Sorry  for inconvineance...\n we will solve this issue soon......\n " + ex.Message);
             }
         }
-
+         
         [HttpPut]
         [Route("UpdateAdmintypes")]
         public async Task<IActionResult> UpdateAdmintypes([FromBody]AdminTypes admintypes)
