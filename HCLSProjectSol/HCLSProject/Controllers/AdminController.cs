@@ -17,6 +17,7 @@ namespace HCLSProject.Controllers
         {
            this.AdminRepo = AdminRepo;
         }
+
         [HttpGet]
         [Route("GetAllAdmins")]
         public async Task<IActionResult> GetAllAdmins()
@@ -47,11 +48,11 @@ namespace HCLSProject.Controllers
         {
             try
             {
-                var admin_by_id = await AdminRepo.getAdminById(AdminId);
+                var admin = await AdminRepo.getAdminById(AdminId);
 
-                if (admin_by_id != null)
+                if (admin != null)
                 {
-                    return Ok(admin_by_id);
+                    return Ok(admin);
                 }
                 else
                 {
@@ -134,6 +135,33 @@ namespace HCLSProject.Controllers
             {
                 return BadRequest("Sorry  for inconvineance...\n we will solve this issue soon......\n " + ex.Message);
             }
+
+        }
+
+
+        [HttpGet]
+        [Route("CheckAdminLogin")]
+
+        public async Task<IActionResult> CheckAdminLogin(string Email, string Password)
+        {
+            try
+            {
+                var admin = await AdminRepo.checkAdminLogin(Email,Password);
+
+                if (admin != null)
+                {
+                    return Ok(admin);
+                }
+                else
+                {
+                    return BadRequest("Data not found...");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Sorry  for inconvineance...\n we will solve this issue soon......\n " + ex.Message);
+            }
+
 
         }
 

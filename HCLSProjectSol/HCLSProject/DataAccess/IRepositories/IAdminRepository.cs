@@ -7,6 +7,8 @@ namespace HCLSProject.DataAccess.IRepositories
         public Task<List<Admin>> getAllAdmins(); 
         
         public Task<Admin> getAdminById(int AdminId);
+        public Task<Admin> checkAdminLogin(string Email, string Psssword);
+
 
         public Task<int> insertAdmin(Admin admin);
 
