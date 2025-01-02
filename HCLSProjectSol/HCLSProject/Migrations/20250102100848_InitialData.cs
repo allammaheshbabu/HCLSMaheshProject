@@ -5,7 +5,7 @@
 namespace HCLSProject.Migrations
 {
     /// <inheritdoc />
-    public partial class hclsmigtation : Migration
+    public partial class InitialData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,7 +38,6 @@ namespace HCLSProject.Migrations
                     Id_Proof = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActiveStatus = table.Column<bool>(type: "bit", nullable: false),
                     AdminTypeId = table.Column<int>(type: "int", nullable: false)
-                    
                 },
                 constraints: table =>
                 {
@@ -52,9 +51,9 @@ namespace HCLSProject.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-               name: "IX_Admin_AdminTypeId",
-               table: "Admin",
-               column: "AdminTypeId");
+                name: "IX_Admin_AdminTypeId",
+                table: "Admin",
+                column: "AdminTypeId");
         }
 
         /// <inheritdoc />

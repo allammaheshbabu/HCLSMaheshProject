@@ -34,12 +34,12 @@ namespace HCLSProject.Models
         [Required(ErrorMessage = "Please Enter ActiveStatus")]
         public bool ActiveStatus { get; set; }
 
-        [ForeignKey("AdminTypes")] 
+        [ForeignKey("AdminType")] 
         [Required(ErrorMessage = "Please Enter AdminTypeId")]
         public int AdminTypeId { get; set; }
 
       
-        public  AdminTypes AdminType { get; set; } 
+        public  AdminTypes? AdminType { get; set; } 
     }
 
 }

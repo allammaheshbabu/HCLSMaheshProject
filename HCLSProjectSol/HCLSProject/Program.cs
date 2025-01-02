@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HCLSDBContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("con_str")));
 builder.Services.AddTransient<IAdminTypesRepository, AdminTypesRepository>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
+builder.Services.AddCors();
+
 
 var app = builder.Build();
 
@@ -23,6 +25,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors(builder =>
+{
+    builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
+
 
 app.UseAuthorization();
 

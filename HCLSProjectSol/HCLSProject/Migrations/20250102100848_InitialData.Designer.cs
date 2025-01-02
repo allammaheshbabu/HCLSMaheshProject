@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HCLSProject.Migrations
 {
     [DbContext(typeof(HCLSDBContext))]
-    [Migration("20241130052747_hclsmigtation")]
-    partial class hclsmigtation
+    [Migration("20250102100848_InitialData")]
+    partial class InitialData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,12 +65,9 @@ namespace HCLSProject.Migrations
                     b.Property<long>("Phone")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("adminTypesAdminTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("AdminId");
 
-                    b.HasIndex("adminTypesAdminTypeId");
+                    b.HasIndex("AdminTypeId");
 
                     b.ToTable("Admin");
                 });
@@ -94,13 +91,13 @@ namespace HCLSProject.Migrations
 
             modelBuilder.Entity("HCLSProject.Models.Admin", b =>
                 {
-                    b.HasOne("HCLSProject.Models.AdminTypes", "adminTypes")
+                    b.HasOne("HCLSProject.Models.AdminTypes", "AdminType")
                         .WithMany()
-                        .HasForeignKey("adminTypesAdminTypeId")
+                        .HasForeignKey("AdminTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("adminTypes");
+                    b.Navigation("AdminType");
                 });
 #pragma warning restore 612, 618
         }

@@ -148,14 +148,31 @@ namespace HCLSProject.Controllers
             {
                 var admin = await AdminRepo.checkAdminLogin(Email,Password);
 
-                if (admin != null)
-                {
+              
                     return Ok(admin);
-                }
-                else
-                {
-                    return BadRequest("Data not found...");
-                }
+             
+                
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Sorry  for inconvineance...\n we will solve this issue soon......\n " + ex.Message);
+            }
+
+
+        }
+
+        [HttpGet]
+        [Route("activateAdmin")]
+
+        public async Task<IActionResult> activateAdmin(string Email)
+        {
+            try
+            {
+                var admin = await AdminRepo.ActivateAdmin(Email);
+
+                return Ok(admin);
+
+
             }
             catch (Exception ex)
             {

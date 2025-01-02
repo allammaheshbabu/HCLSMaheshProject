@@ -16,6 +16,8 @@ namespace HCLSProject.DataAccess.IRepositories
 
         public Task<int> deleteAdmin(int AdminId);
 
+        public Task<int> ActivateAdmin(string Email);
+
 
     }
 }
