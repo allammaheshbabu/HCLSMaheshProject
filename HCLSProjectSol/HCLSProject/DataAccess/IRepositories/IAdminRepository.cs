@@ -18,6 +18,10 @@ namespace HCLSProject.DataAccess.IRepositories
 
         public Task<int> ActivateAdmin(string Email);
 
+        public Task<string> BringPassword(string Email);
+
+        public Task<int> ChangePassword(string Email,string Password);
+
 
     }
 }

@@ -55,5 +55,23 @@ namespace HCLSProject.DataAccess.Repositories
             Admin.ActiveStatus = true;
             return await updateAdmin(Admin);
         }
+
+        public async Task<string> BringPassword(string Email)
+        {
+            var Admin = await admincontext.Admins!.Where(x => x.Email == Email).SingleOrDefaultAsync();
+            var x = Admin.Password;
+            return x;
+        }
+
+        public async Task<int> ChangePassword(string Email, string Password)
+        {
+            var Admin = await admincontext.Admins!.Where(x => x.Email == Email).SingleOrDefaultAsync();
+            Admin.Password = Password;
+            return await updateAdmin(Admin);
+        }
+
+
+
+
     }
 }

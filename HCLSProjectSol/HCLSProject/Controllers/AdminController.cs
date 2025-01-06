@@ -163,23 +163,67 @@ namespace HCLSProject.Controllers
 
         [HttpGet]
         [Route("activateAdmin")]
-
-        public async Task<IActionResult> activateAdmin(string Email)
+        public async Task<IActionResult> ActivateAdmin(string Email)
         {
             try
             {
+               
                 var admin = await AdminRepo.ActivateAdmin(Email);
-
-                return Ok(admin);
-
-
+                if (admin > 0)
+                {
+                    return Ok(admin); 
+                }
+                else
+                {
+                    return NotFound("No admin found with the provided email.");  
+                }
             }
             catch (Exception ex)
             {
-                return BadRequest("Sorry  for inconvineance...\n we will solve this issue soon......\n " + ex.Message);
+             
+                return BadRequest($"Sorry for the inconvenience. We will solve this issue soon... Error: {ex.Message}");
             }
+        }
 
+        [HttpGet]
+        [Route("changePassword")]
+        public async Task<IActionResult> changePassword(string Email, string Password)
+        {
+            try
+            {
 
+                var admin = await AdminRepo.ChangePassword(Email,Password);
+                if (admin > 0)
+                {
+                    return Ok(admin);
+                }
+                else
+                {
+                    return NotFound("No admin found with the provided email.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest($"Sorry for the inconvenience. We will solve this issue soon... Error: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        [Route("bringPassword")]
+        public async Task<IActionResult> bringPassword(string Email)
+        {
+            try
+            {
+                var adminPassword = await AdminRepo.BringPassword(Email);
+                return Ok(adminPassword);
+                
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest($"Sorry for the inconvenience. We will solve this issue soon... Error: {ex.Message}");
+            }
         }
 
 
