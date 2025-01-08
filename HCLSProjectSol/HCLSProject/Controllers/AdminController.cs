@@ -69,14 +69,14 @@ namespace HCLSProject.Controllers
 
         [HttpPost]
         [Route("InsertAdmin")]
-        public async Task<IActionResult> InsertAdmin([FromBody]Admin admin)
+        public async Task<IActionResult> InsertAdmin([FromBody] Admin admin)
         {
             try
             {
                var count= await AdminRepo.insertAdmin(admin);
                 if (count > 0)
                 {
-                    return Ok(count+" Records inserted successfully...");
+                    return Ok(count);
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace HCLSProject.Controllers
                 var count = await AdminRepo.updateAdmin(admin);
                 if (count > 0)
                 {
-                    return Ok(count + " Records inserted successfully...");
+                    return Ok(count);
                 }
                 else
                 {
