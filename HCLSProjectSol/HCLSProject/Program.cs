@@ -14,6 +14,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HCLSDBContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("con_str")));
 builder.Services.AddTransient<IAdminTypesRepository, AdminTypesRepository>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
+builder.Services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddTransient<IDoctorDetailsRepository, DoctorDetailsRepository>();
+builder.Services.AddTransient<IDoctorSpecializationRepository, DoctorSpecializationRepository>();
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IHelperDetailsRepository, HelperDetailsRepository>();
+builder.Services.AddTransient<ILabDetailsRepository, LabDetailsRepository>();
+builder.Services.AddTransient<IReceptionistDetailsRepository, ReceptionistDetailsRepository>();
 builder.Services.AddCors();
 
 
